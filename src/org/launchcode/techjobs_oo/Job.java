@@ -16,7 +16,8 @@ public class Job {
     //  the 'id' field.
 
     public Job() {
-        id = 0;
+        id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location,
