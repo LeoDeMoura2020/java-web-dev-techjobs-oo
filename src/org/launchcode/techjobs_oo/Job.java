@@ -6,10 +6,10 @@ public class Job {
     private static int nextId = 1;
 
     private String name;
-    private Employer employer;
-    private Location location;
-    private PositionType positionType;
-    private CoreCompetency coreCompetency;
+    private String employer;
+    private String location;
+    private String positionType;
+    private String coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -28,6 +28,41 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+    }
+
+    //if stat + output
+    @Override
+    public String toString() {
+
+        String description =
+                "\n ID: " + id + "\n Name: " + name + "\n Employer: " + employer + "\n Location: " + location +
+                        "\n Position Type: " + positionType + "\n Core Competency: " + coreCompetency + "\n";
+
+        if (name.equals("")) {
+            name = "Data not available";
+        }
+        if (employer.equals("")) {
+            employer = "Data not available";
+        }
+        if (location.equals("")) {
+            location = "Data not available";
+        }
+        if (positionType.equals("")) {
+            positionType = "Data not available";
+        }
+        if (coreCompetency.equals("")) {
+            coreCompetency = "Data not available";
+        }
+
+        return description;
+
+
+//        return "PositionType{" +
+//                "value='" + value + '\'' +
+//                '}';
+//
+//
+
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -49,8 +84,13 @@ public class Job {
     }
 
 
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    //string.format
+    //output all the ( iD , name etc)
+    //blank first and last
 
     public String getName() {
         return name;

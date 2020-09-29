@@ -12,6 +12,9 @@ public class JobTest {
     private Job constructor_job;
     private Job method_job1;
     private Job method_job2;
+    private Job blank_line;
+    private Job datanot_available;
+
     //variable + constructor
 
     @Before
@@ -20,12 +23,14 @@ public class JobTest {
         test_job2 = new Job();
         constructor_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         method_job1 = new Job("Method 1" , new Employer ("LaunchCode"), new Location("Saint Louis"),new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        method_job2 = new Job("Method 1" , new Employer ("LaunchCode"), new Location("Saint Louis"),new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        blank_line = new Job("Method 1" , new Employer ("LaunchCode"), new Location("Saint Louis"),new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        datanot_available = new Job("" , new Employer ("LaunchCode"), new Location("Saint Louis"),new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
 
     @Test
     public void testJobIdsAreNotEqual() {
+        method_job2 = new Job("Method 1" , new Employer ("LaunchCode"), new Location("Saint Louis"),new PositionType("Quality control"), new CoreCompetency("Persistence"));
         int job1Id = test_job1.getId();
         int job2Id = test_job2.getId();
 
@@ -63,5 +68,28 @@ public class JobTest {
         assertFalse(method_job1.equals(method_job2));
 
     }
+
+    @Test
+    public void containBlankLine() {
+
+        char first = blank_line.toString().charAt(0);
+        int lastNumber = blank_line.toString().length();
+        char last = blank_line.toString().charAt(lastNumber);
+
+
+        assertEquals(first, last);
+
+    }
+
+    @Test
+    public void dataNotAvailable() {
+
+
+        assertTrue(datanot_available.toString().contains("\n ID: " + datanot_available.getId() + "\n Name: Data not available"
+                + "\n Employer: LaunchCode" + "\n Location: Saint Louis"
+                + "\n Position Type: Quality control" + "\n Core Competency: Persistence" + "\n"));
+
+    }
+
 
 }
