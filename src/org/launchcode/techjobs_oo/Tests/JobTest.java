@@ -73,11 +73,12 @@ public class JobTest {
     public void containBlankLine() {
 
         char first = blank_line.toString().charAt(0);
-        int lastNumber = blank_line.toString().length();
+        int lastNumber = (blank_line.toString().length()) -1;
         char last = blank_line.toString().charAt(lastNumber);
 
 
-        assertEquals(first, last);
+        assertEquals( "\n", Character.toString(first) );
+        assertEquals( "\n", Character.toString(last) );
 
     }
 
@@ -85,11 +86,11 @@ public class JobTest {
     public void dataNotAvailable() {
 
 
-        assertTrue(datanot_available.toString().contains("\n ID: " + datanot_available.getId() + "\n Name: Data not available"
+        String expected = "\n ID: " + "6" + "\n Name: Data not available"
                 + "\n Employer: LaunchCode" + "\n Location: Saint Louis"
-                + "\n Position Type: Quality control" + "\n Core Competency: Persistence" + "\n"));
+                + "\n Position Type: Quality control" + "\n Core Competency: Persistence" + "\n";
+
+        assertEquals(expected, datanot_available.toString());
 
     }
-
-
 }

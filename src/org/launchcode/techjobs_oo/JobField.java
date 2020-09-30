@@ -29,7 +29,7 @@ public abstract class JobField {
         if (this == o) return true;
         if (!(o instanceof JobField)) return false;
         JobField jobField = (JobField) o;
-        return getId() == jobfield.getId();
+        return getId() == jobField.getId();
     }
 
     @Override
@@ -37,6 +37,18 @@ public abstract class JobField {
         return Objects.hash(getId());
     }
 
+    public int getId() {
+        return id;
+    }
 
+
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

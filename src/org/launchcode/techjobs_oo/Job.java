@@ -6,10 +6,10 @@ public class Job {
     private static int nextId = 1;
 
     private String name;
-    private String employer;
-    private String location;
-    private String positionType;
-    private String coreCompetency;
+    private Employer employer;
+    private Location location;
+    private PositionType positionType;
+    private CoreCompetency coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -34,34 +34,48 @@ public class Job {
     @Override
     public String toString() {
 
-        String description =
-                "\n ID: " + id + "\n Name: " + name + "\n Employer: " + employer + "\n Location: " + location +
-                        "\n Position Type: " + positionType + "\n Core Competency: " + coreCompetency + "\n";
+         String nameInput;
+         String employerInput;
+         String locationInput;
+         String positionTypeInput;
+         String coreCompetencyInput;
+
+
 
         if (name.equals("")) {
-            name = "Data not available";
+            nameInput = "Data not available";
+        } else {
+            nameInput = this.getName();
         }
-        if (employer.equals("")) {
-            employer = "Data not available";
+        if (employer.toString().equals("")) {
+            employerInput = "Data not available";
+        } else {
+            employerInput = this.employer.toString();
         }
-        if (location.equals("")) {
-            location = "Data not available";
+        if (location.toString().equals("")) {
+            locationInput = "Data not available";
+        } else {
+            locationInput = this.location.toString();
         }
-        if (positionType.equals("")) {
-            positionType = "Data not available";
+        if (positionType.toString().equals("")) {
+            positionTypeInput = "Data not available";
+        } else {
+            positionTypeInput = this.positionType.toString();
         }
-        if (coreCompetency.equals("")) {
-            coreCompetency = "Data not available";
+        if (coreCompetency.toString().equals("")) {
+            coreCompetencyInput = "Data not available";
+        } else {
+            coreCompetencyInput = this.coreCompetency.toString();
         }
+
+        String description =
+                "\n ID: " + id + "\n Name: " + nameInput + "\n Employer: " + employerInput + "\n Location: " + locationInput +
+                        "\n Position Type: " + positionTypeInput + "\n Core Competency: " + coreCompetencyInput + "\n";
+
+
 
         return description;
 
-
-//        return "PositionType{" +
-//                "value='" + value + '\'' +
-//                '}';
-//
-//
 
     }
 
